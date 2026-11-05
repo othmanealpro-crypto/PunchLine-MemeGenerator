@@ -50,7 +50,9 @@ function layoutText(ctx, text, width, height) {
   const blockHeight = lines.length * lineHeight;
   const blockWidth = Math.max(...lines.map((line) => ctx.measureText(line).width));
   const centerX = text.x * width;
-  const top = text.y * height - blockHeight / 2;
+  const margin = fontSize * 0.2;
+  const maxTop = Math.max(margin, height - blockHeight - margin);
+  const top = Math.min(maxTop, Math.max(margin, text.y * height - blockHeight / 2));
   return { fontSize, lines, lineHeight, blockWidth, blockHeight, centerX, top };
 }
 

@@ -29,6 +29,11 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Le serveur a rencontré une erreur. Réessayez dans un instant.' });
 });
 
-app.listen(port, () => {
+// Express 5 transmet aussi les erreurs de démarrage à ce callback.
+app.listen(port, (error) => {
+  if (error) {
+    console.error(`Le serveur n'a pas pu démarrer sur le port ${port} : ${error.message}`);
+    process.exit(1);
+  }
   console.log(`Punchline est prêt sur http://localhost:${port}`);
 });
