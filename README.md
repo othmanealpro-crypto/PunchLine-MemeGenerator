@@ -17,7 +17,7 @@
 
 ## À propos
 
-Punchline est un générateur de mèmes en ligne réalisé pour le mini-projet d'admission SUPINFO. L'image reste dans le navigateur pendant l'édition et n'est envoyée au serveur que si l'utilisateur enregistre son mème.
+Punchline est un générateur de mèmes en ligne. L'image reste dans le navigateur pendant l'édition et n'est envoyée au serveur que si l'utilisateur enregistre son mème.
 
 ## Fonctionnalités
 
