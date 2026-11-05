@@ -1,0 +1,17 @@
+{
+  "name": "generateur-memes",
+  "version": "1.0.0",
+  "description": "Générateur de mèmes en ligne : import d'image, texte, aperçu en temps réel, partage et galerie.",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}

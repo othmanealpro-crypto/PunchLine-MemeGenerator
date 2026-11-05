@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Punchline</title>
+  <meta name="description" content="Créez, téléchargez et partagez vos mèmes.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#creer">Punchline</a>
+    <nav class="tabs" aria-label="Sections">
+      <a class="tab" href="#creer" data-view="creer">Créer</a>
+      <a class="tab" href="#galerie" data-view="galerie">Galerie</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-creer" class="editor" aria-label="Éditeur de mème">
+      <div id="stage" class="stage">
+        <div id="dropzone" class="dropzone">
+          <p class="dropzone-title">Déposez une image ici</p>
+          <p>JPG, PNG, WebP ou GIF, 15 Mo maximum</p>
+          <div class="row">
+            <button type="button" class="btn btn-primary" id="choose-image">Choisir une image</button>
+            <button type="button" class="btn" id="use-sample">Essayer un exemple</button>
+          </div>
+        </div>
+        <canvas id="canvas" tabindex="0" aria-label="Aperçu du mème. Les flèches déplacent le texte sélectionné." hidden></canvas>
+      </div>
+
+      <div class="panel">
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+
+        <fieldset id="controls" class="controls" disabled>
+          <legend>Textes</legend>
+          <div id="text-list" class="text-list"></div>
+          <button type="button" class="btn" id="add-text">Ajouter un texte</button>
+
+          <div class="grid">
+            <div class="field field-wide">
+              <label for="text-size">Taille <output id="text-size-value" for="text-size"></output></label>
+              <input type="range" id="text-size" min="3" max="20" step="0.5">
+            </div>
+            <div class="field field-wide">
+              <label for="text-font">Police</label>
+              <select id="text-font">
+                <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Black', sans-serif">Impact</option>
+                <option value="Arial, Helvetica, sans-serif">Arial</option>
+                <option value="'Comic Sans MS', 'Comic Sans', cursive">Comic Sans</option>
+                <option value="Georgia, 'Times New Roman', serif">Georgia</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="text-color">Couleur</label>
+              <input type="color" id="text-color">
+            </div>
+            <div class="field">
+              <label for="text-outline">Contour</label>
+              <input type="color" id="text-outline">
+            </div>
+          </div>
+          <label class="check"><input type="checkbox" id="text-upper"> Tout en majuscules</label>
+          <p class="hint">Faites glisser un texte sur l'image pour le déplacer.</p>
+        </fieldset>
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="save" disabled>Enregistrer dans la galerie</button>
+          <button type="button" class="btn" id="download" disabled>Télécharger</button>
+          <button type="button" class="btn" id="share" disabled>Partager</button>
+          <button type="button" class="btn" id="change-image" disabled>Changer l'image</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-galerie" class="gallery-view" aria-labelledby="gallery-title" hidden>
+      <h1 id="gallery-title">Galerie</h1>
+      <p id="gallery-message" class="gallery-message" hidden></p>
+      <ul id="gallery" class="gallery"></ul>
+    </section>
+  </main>
+
+  <dialog id="share-dialog" class="dialog" aria-labelledby="share-title">
+    <h2 id="share-title">Partager ce mème</h2>
+    <img id="share-image" alt="">
+    <label for="share-link">Lien public</label>
+    <div class="copy-row">
+      <input type="text" id="share-link" readonly>
+      <button type="button" class="btn" id="share-copy">Copier</button>
+    </div>
+    <p id="share-warning" class="hint" hidden>Ce lien fonctionne seulement sur cet ordinateur. Mettez l'application en ligne pour le partager.</p>
+    <div class="row">
+      <a class="btn" id="share-x" target="_blank" rel="noopener noreferrer">X</a>
+      <a class="btn" id="share-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a class="btn" id="share-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <button type="button" class="btn" id="share-native" hidden>Autres applications</button>
+    </div>
+    <button type="button" class="btn btn-close" id="share-close">Fermer</button>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
