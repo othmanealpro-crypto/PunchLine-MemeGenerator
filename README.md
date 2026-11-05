@@ -54,7 +54,7 @@ npm install
 npm run dev
 ```
 
-Ouvrez ensuite http://localhost:3000. Si ce port est occupé, lancez `PORT=3001 npm run dev`.
+Ouvrez ensuite http://localhost:3000. Si ce port est occupé ( ce qui etait le cas pour moi ), lancez `PORT=3001 npm run dev`.
 
 ## Structure
 
